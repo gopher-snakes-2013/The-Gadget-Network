@@ -1,3 +1,5 @@
+# from Sinatra tutorial
+
 require 'rubygems'
 require 'sinatra'
 

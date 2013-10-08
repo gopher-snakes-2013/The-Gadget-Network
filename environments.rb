@@ -1,3 +1,5 @@
+# got from website.  Gary knows more about environments.rb
+
 configure :development do
   set :database, 'sqlite:///dev.db'
   set :show_exceptions, true

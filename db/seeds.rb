@@ -1,3 +1,5 @@
+# I don't think we need this.  The file we were going off of was seeds.rb in the root directory.  
+
 # require '../app/models/user'
 
 
