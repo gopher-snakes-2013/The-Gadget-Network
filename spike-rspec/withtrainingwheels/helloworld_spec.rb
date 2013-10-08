@@ -15,22 +15,17 @@ end
 describe 'Page is online' do
   #include necessary methods
   include Rack::Test::Methods #can use get '/'
-  it 'should load the home page' do
+  it '1. should load the home page' do
     get '/'
     #last_response = 
     last_response.should be_ok
   end
 
-  it 'should say hello world' do
+
+# This needs to be corrected, currently passing no matter the string.
+  it '2. should say hello world' do
     get '/'
     last_response.body == 'Hello world'
   end
 end
 
-
-
-# describe 'Hello World' do
-#   it "Says hello world" do
-# end
-
-# end
