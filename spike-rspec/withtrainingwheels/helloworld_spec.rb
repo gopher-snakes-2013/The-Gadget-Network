@@ -25,7 +25,7 @@ describe 'Page is online' do
 # This needs to be corrected, currently passing no matter the string.
   it '2. should say hello world' do
     get '/'
-    last_response.body == 'Hello world'
+    last_response.body.should eq('Hello world')
   end
 end
 
