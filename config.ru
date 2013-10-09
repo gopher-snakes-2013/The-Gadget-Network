@@ -1,6 +1,3 @@
-# from some random website, not sure what it does.
+require './gadget_network.rb'
 
-# config.ru
-
-require './app'
 run Sinatra::Application

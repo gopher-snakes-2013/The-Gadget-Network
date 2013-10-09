@@ -1,10 +1,18 @@
-source :rubygems
+source 'https://rubygems.org'
+ruby "1.9.3"
 
-gem 'activerecord'
-gem 'pg'
-gem 'rspec'
 gem 'sinatra'
-gem 'shotgun'
-gem 'sinatra-activerecord' 
-gem 'rake'
-gem 'sqlite3'
+gem 'sinatra-activerecord'
+
+group :production, :staging do
+  gem 'pg'
+end
+
+group :development, :test do
+  gem 'dotenv'
+  gem 'sqlite3'
+  gem 'shotgun'
+  gem 'capybara'
+  gem 'rspec'
+end
+
