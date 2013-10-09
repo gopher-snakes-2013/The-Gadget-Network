@@ -1,5 +1,23 @@
-index.erb
+<h1> Welcome <%= params[:user_name] %></h1>
 
-<html>
-Hello world
-</html>
+<h1>Create a new user account</h1>
+<form method="post">
+  <label>User name
+    <input type="text" name="user_name">
+  </label><br>
+  <!-- <label>First name
+    <input type="text" name="first_name">
+  </label><br>
+  <label>Last name
+    <input type="text" name="last_name">
+  </label><br>
+  <label>Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="email">
+  </label><br>
+  <label>Password
+    <input type="text" name="password">
+  </label><br> -->
+<button type="submit">Sign up!</button>
+</form>
+
+
