@@ -13,6 +13,7 @@ end
 
 set :database, ENV['DATABASE_URL']
 
+enable :session
 
 get '/' do
   erb :index
@@ -24,20 +25,32 @@ post '/' do
   # redirect '/'
 end
 
-get '/signin' do
-  # p User.all
-  # p User.first.user_name
-  # p params[:user_name]
-  # p User.all.find_by_user_name(params[:user_name]).password  
-  if params[:user_name] != "" 
-    if params[:password] == User.all.find_by_user_name(params[:user_name]).password
+post '/signin' do
+  p @currentuser = User.where(user_name: params[:user_name])[0]
+  if @currentuser != nil
+    if @currentuser.password == params[:password]
+  
       erb :signin
     else
       redirect '/'
     end
   else
-      redirect '/'
+    redirect '/'
   end
+  
+  # p User.all
+  # p User.first.user_name
+  # p params[:user_name]
+  # p User.all.find_by_user_name(params[:user_name]).password  
+  # if params[:user_name] != "" 
+  #   if params[:password] == User.all.find_by_user_name(params[:user_name]).password
+  #     erb :signin
+  #   else
+  #     redirect '/'
+  #   end
+  # else
+  #     redirect '/'
+  # end
    
 end
 
