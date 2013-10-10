@@ -1,3 +1,3 @@
-require './gadget_network_app'
+require './gadget_network_app.rb'
 
 run Sinatra::Application
