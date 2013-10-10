@@ -1,1 +1,35 @@
-<h1> Welcome to the Gadget Netowrk </h1>
+<h1> Welcome to the Gadget Network </h1>
+
+<h1> Welcome <%= params[:user_name] %></h1>
+<h1><%= params[:fail] %></h1>
+
+<h1>Create a new user account</h1>
+<form method="post" action="/">
+  <label>User name
+    <input type="text" name="user_name">
+  </label><br>
+  <label>E-Mail
+    <input type="text" name="email">
+  </label><br>
+  <label>First Name
+    <input type="text" name="first_name">
+  </label><br>
+  <label>Last Name
+    <input type="text" name="last_name">
+  </label><br>
+  <label>Password
+    <input type="text" name="password">
+  </label><br>
+<button type="submit">Sign up!</button>
+</form>
+
+<h1>Sign in below!</h1>
+<form method="post" action='/signin'>
+  <label>User name
+    <input type="text" name="user_name">
+  </label><br>
+  <label>password
+    <input type="text" name="password">
+  </label><br>
+  <button type="submit">Sign in!</button>
+</form>
