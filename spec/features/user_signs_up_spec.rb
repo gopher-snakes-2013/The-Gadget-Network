@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Visitor signs up' do
   scenario "it creates a user name when they provide it" do
     visit '/'
-    fill_in "User name", with: "Penny"
+    fill_in "user_name", with: "Penny"
 
     click_on "Sign up!"
 

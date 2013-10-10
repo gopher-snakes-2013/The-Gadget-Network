@@ -15,26 +15,33 @@ set :database, ENV['DATABASE_URL']
 
 
 get '/' do
-  # @random = "random"
   erb :index
 end
 
 post '/' do
-  p params[:user_name]
   erb :index
-  # User.create!("user_name" => params[:todo_item])
-  # @todo = Todo.all#.each {|todo| todo.todo_item }
-  # @random = "random"
-  # params[:todo_item]
+  User.create!("user_name" => params[:user_name], "first_name" => params[:first_name], "last_name" => params[:last_name], "password" => params[:password], "email" => params[:email])
   # redirect '/'
 end
 
+get '/signin' do
+  # p User.all
+  # p User.first.user_name
+  # p params[:user_name]
+  # p User.all.find_by_user_name(params[:user_name]).password  
+  if params[:user_name] != "" 
+    if params[:password] == User.all.find_by_user_name(params[:user_name]).password
+      erb :signin
+    else
+      redirect '/'
+    end
+  else
+      redirect '/'
+  end
+   
+end
 
-# post '/' do
-#   Todo.create!("todo_item" => params[:todo_item])
-#   @todo = Todo.all#.each {|todo| todo.todo_item }
-#   erb :index
-#   # @random = "random"
-#   # params[:todo_item]
-#   # redirect '/'
+# post '/signin' do
+  
+
 # end
