@@ -1,8 +1,5 @@
-<h1> Welcome to the Gadget Network </h1>
 
-<h1> Welcome <%= params[:user_name] %></h1>
-<h1><%= params[:fail] %></h1>
-
+<%= flash[:error] %> 
 <h1>Create a new user account</h1>
 <form method="post" action="/">
   <label>User name
@@ -22,6 +19,8 @@
   </label><br>
 <button type="submit">Sign up!</button>
 </form>
+
+
 
 <h1>Sign in below!</h1>
 <form method="post" action='/signin'>
