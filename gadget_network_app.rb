@@ -24,12 +24,12 @@ get '/' do
 end
 
 get '/feedpage' do
-  @posts = Post.all
+  @posts = current_user.posts
   erb :feedpage
 end
 
 post '/feedpage' do
-  Post.create!(params)
+  current_user.posts.create!(params)
   redirect '/feedpage'
 end
 

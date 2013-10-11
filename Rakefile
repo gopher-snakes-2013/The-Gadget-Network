@@ -10,3 +10,8 @@ require 'sinatra/activerecord/rake'
 # end
 
 # task :default => :spec
+
+desc 'Start IRB with application environment loaded'
+task 'console' do
+  exec 'irb -r ./gadget_network_app.rb'
+end
