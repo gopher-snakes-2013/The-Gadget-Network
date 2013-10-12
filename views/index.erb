@@ -1,28 +1,30 @@
 <h1> Welcome to the Gadget Network </h1>
 
-<h1> Welcome <%= params[:user_name] %></h1>
+<h1> Welcome </h1>
 <h1><%= params[:fail] %></h1>
+
 <div id="register_new_account_form">
 <h1>Create a new user account</h1>
   <form method="post" action="/">
     <label>User name
-      <input type="text" name="user_name">
+      <input type="text" name="user[user_name]" value="<%= @user.user_name %>">
     </label><br>
     <label>E-Mail
-      <input type="text" name="email">
+      <input type="text" name="user[email]" value="<%= @user.email %>">
     </label><br>
     <label>First Name
-      <input type="text" name="first_name">
+      <input type="text" name="user[first_name]" value="<%= @user.first_name %>">
     </label><br>
     <label>Last Name
-      <input type="text" name="last_name">
+      <input type="text" name="user[last_name]" value="<%= @user.last_name %>"> 
     </label><br>
     <label>Password
-      <input type="text" name="password">
+      <input type="text" name="user[password]">
     </label><br>
   <button type="submit">Sign up!</button>
   </form>
 </div>
+
 <div id="sign_in_form">
   <h1>Sign in below!</h1>
   <form method="post" action='/signin'>
@@ -35,3 +37,11 @@
     <button type="submit">Sign in!</button>
   </form>
 </div>
+
+
+
+<!-- params = {username => "bob141000", banana => {email: bob@example.com, first_name: bob, last_name: "tsai", password: "hello"}}
+
+
+
+params = {"username"=>"kyle", "banana"=>{":email"=>"kyle@gmail.com", ":first_name"=>"kyle", ":last_name"=>"tsai", ":password"=>"hello"}} -->

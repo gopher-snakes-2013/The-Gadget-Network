@@ -1,0 +1,74 @@
+>> hash = {first: 'first_val'}
+{
+    :first => "first_val"
+}
+>> hash[:first]
+"first_val"
+>> params = {"username"=>"kyle", "banana"=>{":email"=>"kyle@gmail.com", ":first_name"=>"kyle", ":last_name"=>"tsai", ":password"=>"hello"}}
+{
+    "username" => "kyle",
+      "banana" => {
+             ":email" => "kyle@gmail.com",
+        ":first_name" => "kyle",
+         ":last_name" => "tsai",
+          ":password" => "hello"
+    }
+}
+>> params.lenght
+NoMethodError: undefined method `lenght' for #<Hash:0x007fa0f2179b80>
+  from (irb):10
+  from /Users/apprentice/.rvm/rubies/ruby-1.9.3-p374/bin/irb:16:in `<main>'
+>> params.length
+2
+>> params[0]
+nil
+>> params.first
+[
+    [0] "username",
+    [1] "kyle"
+]
+>> params.last
+NoMethodError: undefined method `last' for #<Hash:0x007fa0f2179b80>
+  from (irb):14
+  from /Users/apprentice/.rvm/rubies/ruby-1.9.3-p374/bin/irb:16:in `<main>'
+>> params
+{
+    "username" => "kyle",
+      "banana" => {
+             ":email" => "kyle@gmail.com",
+        ":first_name" => "kyle",
+         ":last_name" => "tsai",
+          ":password" => "hello"
+    }
+}
+>> params[banana]
+NameError: undefined local variable or method `banana' for main:Object
+  from (irb):16
+  from /Users/apprentice/.rvm/rubies/ruby-1.9.3-p374/bin/irb:16:in `<main>'
+>> params[:banana]
+nil
+>> params[banana:]
+SyntaxError: (irb):18: syntax error, unexpected ']'
+  from /Users/apprentice/.rvm/rubies/ruby-1.9.3-p374/bin/irb:16:in `<main>'
+>> params[:username]
+nil
+>> params['username']
+"kyle"
+>> params['banana']
+{
+         ":email" => "kyle@gmail.com",
+    ":first_name" => "kyle",
+     ":last_name" => "tsai",
+      ":password" => "hello"
+}
+>> banana[:email]
+NameError: undefined local variable or method `banana' for main:Object
+  from (irb):22
+  from /Users/apprentice/.rvm/rubies/ruby-1.9.3-p374/bin/irb:16:in `<main>'
+>> banana[":email"]
+NameError: undefined local variable or method `banana' for main:Object
+  from (irb):23
+  from /Users/apprentice/.rvm/rubies/ruby-1.9.3-p374/bin/irb:16:in `<main>'
+>> params['banana'][':email']
+"kyle@gmail.com"
+>>

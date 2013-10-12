@@ -15,6 +15,7 @@ end
 set :database, ENV['DATABASE_URL']
 
 get '/' do
+  @user = User.new
   erb :index
 end
 
@@ -29,17 +30,24 @@ post '/feedpage' do
 end
 
 post '/' do
-  User.create!( user_name: params[:user_name], email: params[:email], first_name: params[:first_name], last_name: params[:last_name], password: params[:password] )
-  erb :index
+  @user = User.new(params[:user])
+  if @user.save
+    p "successfully saved user"
+    redirect '/feedpage'
+  else
+    erb :index
+  end
 end
 
 post '/signin' do
   p @currentuser = User.where(user_name: params[:user_name])[0]
   if @currentuser != nil
     if @currentuser.password == params[:password]
+      p "*" * 80
       p "hello"
      redirect '/feedpage'
     else
+      p "*" * 80
       p "User exists, failed password"
      redirect '/'
     end
