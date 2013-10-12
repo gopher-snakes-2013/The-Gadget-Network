@@ -29,7 +29,7 @@ post '/feedpage' do
 end
 
 post '/' do
-  User.create!( user_name: params[:user_name], email: params[:email], first_name: params[:first_name], last_name: params[:last_name], password: params[:password] )
+  User.create!( {user_name: params[:user_name], email: params[:email], first_name: params[:first_name], last_name: params[:last_name], password: params[:password] } )
   erb :index
 end
 
@@ -47,4 +47,13 @@ post '/signin' do
    p "User does not exist"
    redirect '/'
  end
+end
+
+get '/find_members' do
+  erb :find_members
+end
+
+post '/search' do
+  
+  redirect '/find_members'
 end
