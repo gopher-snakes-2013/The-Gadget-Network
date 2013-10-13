@@ -14,12 +14,19 @@ end
 
 set :database, ENV['DATABASE_URL']
 
+enable :sessions
+
 get '/' do
-  @user = User.new
-  erb :index
+  if session[:banana]
+    redirect '/feedpage'
+  else
+    @user = User.new
+    erb :index
+  end
 end
 
 get '/feedpage' do
+  p session[:banana]
   @posts = Post.all
   erb :feedpage
 end
@@ -43,6 +50,7 @@ post '/signin' do
   p @currentuser = User.where(user_name: params[:user_name])[0]
   if @currentuser != nil
     if @currentuser.password == params[:password]
+      session[:banana] = @currentuser.id
       p "*" * 80
       p "hello"
      redirect '/feedpage'
@@ -55,4 +63,13 @@ post '/signin' do
    p "User does not exist"
    redirect '/'
  end
+end 
+
+
+get '/logout' do
+  p "before: #{session[:banana]}"
+  session.clear
+  p "after: #{session[:banana]}"
+  p "destroyed the session"
+  redirect '/'
 end
